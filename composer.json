@@ -1,5 +1,5 @@
 {
-    "name": "acolyte/errorlog",
+    "name": "acolyte/laravel-errorlog",
     "description": "Error Log - - A simple Laravel package.",
     "type": "library",
     "license": "MIT",
