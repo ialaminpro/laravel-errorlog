@@ -59,7 +59,10 @@ class SendMails
         );
         $view = 'acolyte.errorlog.emails.error_exception_email';
         $email = config('errorlog.MAIL_TO_ADDRESS');
-        $email = array($email, config('errorlog.MAIL_CC_ADDRESS'));
+
+        if(config('errorlog.MAIL_CC_ADDRESS')) {
+            $email = array($email, config('errorlog.MAIL_CC_ADDRESS'));
+        }
         $subject = $data['subject'];
 
         Mail::send($view, $data, function ($message) use ($email, $subject) {
