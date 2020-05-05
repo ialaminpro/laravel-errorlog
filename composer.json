@@ -1,0 +1,31 @@
+{
+    "name": "acolyte/errorlog",
+    "description": "Error Log - - A simple Laravel package.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Al Amin",
+            "email": "ialamin.pro@gmail.com",
+            "homepage": "https://github.com/ialaminpro",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=5.6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Acolyte\\ErrorLog\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Acolyte\\ErrorLog\\ErrorLogServiceProvider"
+            ]
+        }
+    }
+}
