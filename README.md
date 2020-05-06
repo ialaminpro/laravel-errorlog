@@ -1,4 +1,4 @@
-Step 1: composer require acolyte/laravel-errorlog. <br/>
+Step 1: composer require acolyte/laravel-errorlog <br/>
 Step 2: php artisan vendor:publish<br/>
 Step 3: php artisan migrate<br/>
 Step 4: php artisan config:cache<br/>
