@@ -249,6 +249,9 @@
     <script src="https://getbootstrap.com/docs/3.3/assets/js/ie10-viewport-bug-workaround.js"></script>
     <script>
         var table_id = "error_log_table"; // keep this DRY for the future. Keep id here without the preceding # as we might use native selector amytime in the future.
+        var prefix = '{{config('errorlog.ROUTE_PREFIX')}}';
+        if(prefix != '/') prefix+='/';
+        var base_url = "{{url('/')}}/"+prefix;
 
         $(document).ready(function() {
 
@@ -291,7 +294,7 @@
 
 
                 $.ajax({
-                    url: "{{url('error-logs/delete')}}/" + log_id,
+                    url: base_url+'error-logs/delete/' + log_id,
                 }).done(function() {
                     var $tr = $("#tr-" + log_id);
                     $("#tr-" + log_id).remove();
@@ -309,9 +312,8 @@
                 var button = $(this);
                 var title = $(this).attr('title');
                 var log_id = button.data('logid');
-
                 $.ajax({
-                    url: "{{url('error-logs/toggle-resolve')}}/" + log_id,
+                    url: base_url+'error-logs/toggle-resolve/' + log_id,
                 }).done(function(data) {
                     if(data.status == 200){
                         alert(data.reason);
@@ -345,7 +347,8 @@
 
         function delete_all_error_log(){
 
-            var url = "{{ url('error-logs/delete_all') }}";
+            var url = base_url+'error-logs/delete_all';
+
             $.ajax({
                 type: "POST",
                 url: url,
