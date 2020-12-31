@@ -43,6 +43,7 @@ class SendMails
 
     public static function sendErrorMail($message, $view=NULL, $controller, $method, $line_number=NULL, $file_path=NULL, $object=NULL,$type=NULL, $argument=NULL, $email=NULL)
     {
+        
         $data = array(
             'exception_message' => $message,
             'method_name'    	=> $method,
@@ -53,7 +54,7 @@ class SendMails
             'type' 		 		=> $type,
             'argument' 		 	=> $argument,
             'email' 		 	=> $email,
-            'domain' 		 	=> $_SERVER['HTTP_HOST'],
+            'domain' 		 	=> isset($_SERVER['HTTP_HOST'])?$_SERVER['HTTP_HOST']:'',
             'client' 		 	=> config('errorlog.MAIL_FROM_NAME'),
             'subject' 		 	=> 'Error Notification'
         );
@@ -74,8 +75,8 @@ class SendMails
         /*Save error to database*/
         $screenshot = '';
         $prefix = '';
-        $domain = $_SERVER['HTTP_HOST'];
-        $page_url = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+        $domain = isset($_SERVER['HTTP_HOST'])?$_SERVER['HTTP_HOST']:'';
+        $page_url = $domain. isset($_SERVER['REQUEST_URI'])?$_SERVER['REQUEST_URI']:'';
         $error = self::saveErrorLog($method,$line_number,$file_path,$message,$object,$type,$screenshot,$page_url,$argument,$prefix,$domain);
         return $error;
     }
