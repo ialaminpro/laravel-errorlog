@@ -14,7 +14,7 @@ class ErrorLogServiceProvider extends ServiceProvider
     public function register()
     {
         include __DIR__ . '/routes/web.php';
-        $this->app->make('Acolyte\ErrorLog\ErrorLogController');
+        //$this->app->make('Acolyte\ErrorLog\ErrorLogController');
     }
 
     /**
