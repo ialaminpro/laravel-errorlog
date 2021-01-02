@@ -41,7 +41,7 @@ class SendMails
 
     }
 
-    public static function sendErrorMail($message, $view=NULL, $controller, $method, $line_number=NULL, $file_path=NULL, $object=NULL,$type=NULL, $argument=NULL, $email=NULL)
+    public static function sendErrorMail($message, $view, $controller, $method, $line_number=NULL, $file_path=NULL, $object=NULL,$type=NULL, $argument=NULL, $email=NULL)
     {
         
         $data = array(
