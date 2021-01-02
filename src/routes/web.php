@@ -8,7 +8,7 @@ Route::prefix(config('errorlog.ROUTE_PREFIX'))->group(function () {
             $laravel = app();
             $laravel_version = ($laravel::VERSION)[0];
             
-            if($laravel_version <= 7) {
+            if($laravel_version < 7) {
                 Route::get('error-logs', 'ErrorLogController@index');
                 Route::get('error-logs/delete/{id}', 'ErrorLogController@errorLogDelete');
                 Route::post('error-logs/delete_all', 'ErrorLogController@errorLogDeleteAll');
