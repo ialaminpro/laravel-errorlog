@@ -1,8 +1,8 @@
-Step 1: composer require acolyte/laravel-errorlog <br/>
-Step 2: php artisan vendor:publish<br/>
-Step 3: php artisan migrate<br/>
-Step 4: php artisan config:cache<br/>
-Step 5: Update the .env file with below config<br/>
+### Step 1: composer require acolyte/laravel-errorlog 
+### Step 2: php artisan vendor:publish
+### Step 3: php artisan migrate
+### Step 4: php artisan config:cache
+### Step 5: Update the .env file with below config
 
 MAIL_FROM_ADDRESS= 
 
@@ -16,9 +16,9 @@ ROUTE_PREFIX=
 
 MIDDLEWARE=
 
-Step 6: use Acolyte\ErrorLog\Helpers\SendMails;
+### Step 6: use Acolyte\ErrorLog\Helpers\SendMails;
 
-Step 7: 
+### Step 7: 
 
 try {
 
